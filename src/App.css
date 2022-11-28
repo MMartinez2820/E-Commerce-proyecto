@@ -46,22 +46,23 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
-.fa-solid {
+.opacity {
+  opacity: 0;
+}
+
+.text-icon {
+  display: flex;
+
+}
+
+.icon-contain {
   position: absolute;
-  right: 10px;
-  bottom: 13px;
-  font-size: 20px;
-  background: red;
+  right: 5px;
+  background-color: red;
   padding: 10px;
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   -o-border-radius: 100%;
-  color: white;
-}
-
-.containerCard {
-  background-color: white;
-  color: black !important;
 }

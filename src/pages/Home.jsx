@@ -26,6 +26,10 @@ const Home = () => {
   const [inputSearch, setInputSearch] = useState('');
 
   // console.log(category);
+
+  // creo un estado para cambiar la imagen para el transition de la imagen:
+  const [changeImg, setChangeImg] = useState(null);
+
   return (
     <div >
       <Row>
@@ -64,38 +68,50 @@ const Home = () => {
           </InputGroup>
           <Row xs={1} md={2} lg={2} className='g-4'>
             {products?.map((product) => (
-              <Col key={product.id}>
-                <Card>
+              <Col key={product.id} className='padre'>
+                <div
+                  onMouseOver={() => setChangeImg(product.id)}
+                  onMouseLeave={() => setChangeImg(null)}>
+                  <Card.Img variant='top'
+                    src={product.productImgs[0]}
+                    style={{ width: 300, height: 300, objectFit: 'contain', marginBottom: '10px', position: 'absolute' }}
+                    className={`${changeImg === product.id ? 'opacity' : ''}`}
+                  />
+                  <Card.Img variant='top'
+                    src={product.productImgs[1]}
+                    style={{ width: 300, height: 300, objectFit: 'contain', marginBottom: '10px' }}
+                    className={`${changeImg !== product.id ? 'opacity' : ''}`}
+                  />
+                </div>
+                <Card >
                   <Link
                     to={`/products/${product.id}`}
                     style={{ textDecoration: 'none' }}
                   >
-                    <Card.Body className='containerCard' style={{ heigth: 600 }}>
-                      <Card.Img variant='top'
-                        src={product.productImgs[0]}
-                        style={{ width: 300, height: 300, objectFit: 'contain', marginBottom: '10px' }}
-                      />
-                      <div style={{ height: '150px' }}>
-                        <Card.Title>
-                          <h4>{product.title}</h4>
-                        </Card.Title>
+                    <Card.Body className='card-link'>
+                      <Card.Title>
+                        <h4>{product.title}</h4>
+                      </Card.Title>
+                      <div className='text-icon'>
                         <Card.Text className='' style={{ fontSize: 25 }}>
                           $ {product.price}
+
                         </Card.Text>
+                        <div className='icon-contain'>
+                          <i className="fa-solid fa-cart-shopping"></i>
+                        </div>
                       </div>
 
                     </Card.Body>
                   </Link>
-                  <Card.Text>
-                    <i className="fa-solid fa-cart-shopping"></i>
-                  </Card.Text>
+
                 </Card>
               </Col>
             ))}
           </Row>
         </Col>
-      </Row>
-    </div>
+      </Row >
+    </div >
   )
 }
 
