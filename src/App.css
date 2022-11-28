@@ -51,12 +51,17 @@
   right: 10px;
   bottom: 13px;
   font-size: 20px;
-  background: white;
+  background: red;
   padding: 10px;
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   -o-border-radius: 100%;
-  color: red;
+  color: white;
+}
+
+.containerCard {
+  background-color: white;
+  color: black !important;
 }

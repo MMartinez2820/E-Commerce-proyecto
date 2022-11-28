@@ -70,19 +70,20 @@ const Home = () => {
                     to={`/products/${product.id}`}
                     style={{ textDecoration: 'none' }}
                   >
-                    <Card.Body>
+                    <Card.Body className='containerCard' style={{ heigth: 600 }}>
                       <Card.Img variant='top'
                         src={product.productImgs[0]}
-                        style={{ height: 200, width: 200 }}
+                        style={{ width: 300, height: 300, objectFit: 'contain', marginBottom: '10px' }}
                       />
-                      <Card.Title>
-                        <h2>{product.title}</h2>
-                      </Card.Title>
-                      <Card.Text className='' style={{ fontSize: 25 }}>
-                        {product.price}
+                      <div style={{ height: '150px' }}>
+                        <Card.Title>
+                          <h4>{product.title}</h4>
+                        </Card.Title>
+                        <Card.Text className='' style={{ fontSize: 25 }}>
+                          $ {product.price}
+                        </Card.Text>
+                      </div>
 
-
-                      </Card.Text>
                     </Card.Body>
                   </Link>
                   <Card.Text>
